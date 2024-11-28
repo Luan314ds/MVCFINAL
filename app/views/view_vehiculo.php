@@ -10,8 +10,8 @@ class ViewVehiculo
     }
 
 
-    function error()
-    {
-        echo "meeeee";
-    }
+        function mostrarError($error = ''){
+            require_once "tem/errorvehiculos.phtml";
+        }
+    
 }

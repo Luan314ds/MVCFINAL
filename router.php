@@ -16,20 +16,24 @@ $res = new Response;
 if (!empty($_GET["action"])) {
     $action = $_GET["action"];
 } else {
-    $action = "inicio";
+    $action = "vehiculos";
 }
 
 $params = explode("/", $action);
 
 switch ($params[0]) {
     case 'vehiculos':
+        if (isset($params[0])) {
             $controller = new ControllerVehiculos();
             $controller->getAllcontroller($params[0]);
+             }
         break;
 
         case 'services':
-            $controller = new ControllerServices();
-            $controller->mostrar($params[0]);
+            if (isset($params[0])) {
+                $controller = new ControllerServices();
+                $controller->mostrar($params[0]);
+            }
         break;
         case 'form':
             $controller = new ControllerVehiculos();
