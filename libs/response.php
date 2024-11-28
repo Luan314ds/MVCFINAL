@@ -1,5 +1,5 @@
 <?php
 class Response{
-    public $usuario = null;
+    public $usuarios = null;
 }
 ?>

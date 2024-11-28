@@ -8,10 +8,10 @@ class ControllerVehiculos{
     private $model;
     private $view;
 
-    public function __construct()
+    public function __construct($res)
     {
        $this->model = new VehiculoModel;
-       $this->view = new ViewVehiculo;
+       $this->view = new ViewVehiculo($res->usuarios);
     }
 
     public function getAllcontroller(){
@@ -19,8 +19,6 @@ class ControllerVehiculos{
         $vehiculos = $this->model->getAll();
 
         return $this->view->mostrarVehi($vehiculos);
-
-        
     }
 
     public function insertcontroller(){
@@ -49,7 +47,7 @@ class ControllerVehiculos{
             header('Location:'. BASE_URL . 'vehiculos');
             exit;
         } else {
-            return $this->view->mostrarError("Id del vehiculo no existe");
+            return $this->view->mostrarError("No se inserto bien el vehiculo");
         }
     }
 }

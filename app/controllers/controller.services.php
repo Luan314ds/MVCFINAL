@@ -8,10 +8,10 @@ class ControllerServices{
     private $model;
     private $view;
 
-    public function __construct()
+    public function __construct($res)
     {
        $this->model = new ServiceModel;
-       $this->view = new ViewServices;
+       $this->view = new ViewServices($res->usuarios);
     }
 
     public function mostrar(){
@@ -30,7 +30,7 @@ class ControllerServices{
             return $this->view->mostrarError('Falta completar id_mecanico');
             die();
         }
-        if(!isset($_GET['fecha']) || empty($_GET['ifecha'])){
+        if(!isset($_GET['fecha']) || empty($_GET['fecha'])){
             return $this->view->mostrarError('Falta completar fecha');
             die();
         }
@@ -52,7 +52,7 @@ class ControllerServices{
                 header('Location:'. BASE_URL . 'services');
                 exit;
             } else {
-                return $this->view->mostrarError('Id no existe');;
+                return $this->view->mostrarError('No se inserto bien el service');;
             }
         }
 

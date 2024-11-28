@@ -1,0 +1,18 @@
+<?php require 'tem/header.phtml'?>
+
+<?php if($error): ?>
+<div class="alert alert-danger" role="alert">
+        <?= $error ?>
+    </div>
+<?php endif ?>
+
+
+<form action="login" method="POST">
+    <label for="nombre">Nombre: </label>
+    <input name="nombre" id="nombre" type="text">
+
+    <label for="contraseña">Contraseña: </label>
+    <input name="contraseña" id="contraseña" type="password">
+
+    <button type="submit">Iniciar sesion</button>
+</form>

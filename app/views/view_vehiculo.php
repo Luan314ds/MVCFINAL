@@ -1,7 +1,14 @@
 <?php
 
-class ViewVehiculo
-{
+class ViewVehiculo{
+
+    public $usuarios = null;
+
+    public function __construct($usuario)
+    {
+        $this->usuarios = $usuario;
+    }
+
 
     function mostrarVehi($vehiculos)
     {
